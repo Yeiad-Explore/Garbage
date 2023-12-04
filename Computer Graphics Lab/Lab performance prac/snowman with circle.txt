@@ -1,0 +1,71 @@
+#include <GL/glut.h>  // GLUT, includes glu.h and gl.h
+#include <math.h>     // Needed for sin, cos
+
+#define PI 3.14159265
+#define CIRCLE_POINTS 100  // Number of vertices used to draw the circle
+
+/* Function to draw a circle using a polygon approximation */
+void drawCircle(float cx, float cy, float r, int num_segments) {
+    glBegin(GL_POLYGON);
+    for (int i = 0; i < num_segments; i++) {
+        float theta = 2.0f * PI * float(i) / float(num_segments); // Current angle
+        float x = r * cosf(theta); // Calculate the x component
+        float y = r * sinf(theta); // Calculate the y component
+        glVertex2f(x + cx, y + cy); // Output vertex
+    }
+    glEnd();
+}
+
+/* Initialize OpenGL Graphics */
+void initGL() {
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Set background color to black and opaque
+    glMatrixMode(GL_PROJECTION);           // Select the Projection matrix for operation
+    glLoadIdentity();                      // Reset Projection matrix
+    gluOrtho2D(-10.0, 10.0, -10.0, 10.0);  // Set an orthographic projection
+}
+
+/* Window repaint event handler */
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT);   // Clear the color buffer
+
+    // Draw the bottom circle for the snowman's body
+    glColor3f(1.0f, 1.0f, 1.0f); // White color
+    drawCircle(0.0f, -4.0f, 3.0f, CIRCLE_POINTS);
+
+    // Draw the middle circle for the snowman's body
+    drawCircle(0.0f, 0.0f, 2.0f, CIRCLE_POINTS);
+
+    // Draw the top circle for the snowman's head
+    drawCircle(0.0f, 3.5f, 1.5f, CIRCLE_POINTS);
+
+    // Draw the eyes using small black circles
+    glColor3f(0.0f, 0.0f, 0.0f); // Black color
+    drawCircle(-0.5f, 4.0f, 0.25f, CIRCLE_POINTS);
+    drawCircle(0.5f, 4.0f, 0.25f, CIRCLE_POINTS);
+
+    // Draw the nose using a small orange triangle
+    glColor3f(1.0f, 0.5f, 0.0f); // Orange color
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.0f, 3.5f);
+    glVertex2f(-0.5f, 3.0f);
+    glVertex2f(0.5f, 3.0f);
+    glEnd();
+
+    // Draw the buttons using small black circles
+    drawCircle(0.0f, 0.5f, 0.25f, CIRCLE_POINTS);
+    drawCircle(0.0f, -0.5f, 0.25f, CIRCLE_POINTS);
+    drawCircle(0.0f, -1.5f, 0.25f, CIRCLE_POINTS);
+
+    glFlush();  // Render now
+}
+
+/* Main function: GLUT runs as a console application starting at main() */
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);                 // Initialize GLUT
+    glutCreateWindow("OpenGL Snowman");    // Create a window with the given title
+    glutInitWindowSize(320, 320);          // Set the window's initial width & height
+    glutDisplayFunc(display);              // Register display callback handler for window re-paint
+    initGL();                              // Our own OpenGL initialization
+    glutMainLoop();                        // Enter the event-processing loop
+    return 0;
+}

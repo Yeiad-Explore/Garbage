@@ -1,0 +1,149 @@
+body, ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.logo-name-section {
+  display: flex;
+  background-color: #2F3D30;
+  color: white;
+  padding: 20px;
+  align-items: center;
+}
+
+.logo {
+  width: 20%;
+}
+
+.website-name {
+  width: 80%;
+  font-size: 52px;
+  font-weight: bold;
+  font-family: "Helvetica Neue", sans-serif;
+  text-align: center;
+  margin-right: 250px;
+}
+
+.navbar {
+  background-color: #8C826C;
+  text-align: center;
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style: none;
+  
+  display: flex;
+  justify-content: center;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+.registration-form {
+  width: 60%;
+  background-color: #57605C;
+  padding: 20px;
+  margin: 20px auto;
+  color: white;
+}
+
+.registration-form h2 {
+  color: #f0ede7;
+}
+
+.registration-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.registration-form input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.registration-form button {
+  background-color: #fa0808;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+}
+
+.about-section {
+  width: 20%;
+  background-color: #404654;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.social-logos {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-logos a {
+  display: inline-block;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.social-logos img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Media query for screens with a maximum width of 768px */
+@media screen and (max-width: 768px) {
+  .logo-name-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .logo {
+    width: 50%;
+    margin-bottom: 10px;
+  }
+
+  .website-name {
+    width: 100%;
+    font-size: 32px;
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+  }
+
+  .navbar li {
+    margin: 10px 0;
+  }
+
+  .registration-form {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .about-section {
+    width: 90%;
+    padding: 10px;
+    margin: 10px auto;
+  }
+}

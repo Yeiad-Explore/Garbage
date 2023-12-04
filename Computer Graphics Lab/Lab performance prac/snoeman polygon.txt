@@ -1,0 +1,92 @@
+#include <GL/glut.h>
+#include <math.h>
+
+#define PI 3.14159265
+#define CIRCLE_POINTS 100
+
+void drawPolygon(float cx, float cy, float r, int num_vertices) {
+    glBegin(GL_POLYGON);
+    for (int i = 0; i < num_vertices; i++) {
+        float theta = 2.0f * PI * float(i) / float(num_vertices);
+        float x = r * cosf(theta);
+        float y = r * sinf(theta);
+        glVertex2f(x + cx, y + cy);
+    }
+    glEnd();
+}
+
+void drawArrow(float x, float y) {
+    glBegin(GL_LINES);
+    glVertex2f(x, y);
+    glVertex2f(x + 1.0f, y + 1.0f);
+    glEnd();
+}
+
+void drawSnowman() {
+    // Draw the bottom polygon for the snowman's body
+    glColor3f(1.0f, 1.0f, 1.0f); // White color
+    drawPolygon(0.0f, -4.0f, 3.0f, 6);
+
+    // Draw the middle polygon for the snowman's body
+    drawPolygon(0.0f, 0.0f, 2.0f, 6);
+
+    // Draw the top polygon for the snowman's head
+    drawPolygon(0.0f, 3.5f, 1.5f, 6);
+
+    // Draw the eyes using small black circles
+    glColor3f(0.0f, 0.0f, 0.0f); // Black color
+    drawPolygon(-0.5f, 4.0f, 0.25f, CIRCLE_POINTS);
+    drawPolygon(0.5f, 4.0f, 0.25f, CIRCLE_POINTS);
+
+    // Draw the nose using a small orange triangle
+    glColor3f(1.0f, 0.5f, 0.0f); // Orange color
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.0f, 3.5f);
+    glVertex2f(-0.5f, 3.0f);
+    glVertex2f(0.5f, 3.0f);
+    glEnd();
+
+    // Draw the buttons using small black circles
+    drawPolygon(0.0f, 0.5f, 0.25f, CIRCLE_POINTS);
+    drawPolygon(0.0f, -0.5f, 0.25f, CIRCLE_POINTS);
+    drawPolygon(0.0f, -1.5f, 0.25f, CIRCLE_POINTS);
+
+    // Draw the mouth using a small polygon
+    glColor3f(0.0f, 0.0f, 0.0f); // Black color
+    glBegin(GL_POLYGON);
+    glVertex2f(-0.25f, 3.0f);
+    glVertex2f(0.25f, 3.0f);
+    glVertex2f(0.0f, 2.8f);
+    glEnd();
+
+    // Draw the left arrow as the left hand
+    drawArrow(-2.0f, 1.0f);
+
+    // Draw the right arrow as the right hand
+    drawArrow(2.0f, 1.0f);
+}
+
+void initGL() {
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(-10.0, 10.0, -10.0, 10.0);
+}
+
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    drawSnowman();
+
+    glFlush();
+}
+
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutCreateWindow("OpenGL Snowman");
+    glutInitWindowSize(320, 320);
+    glutDisplayFunc(display);
+    initGL();
+    glutMainLoop();
+    return 0;
+}

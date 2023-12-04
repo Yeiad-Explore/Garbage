@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Center</title>
+    <style>
+        body {
+            background-color: #272e47;
+            color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+       
+        .container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color:#2F5D8C;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(47, 47, 47, 0.4);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 1rem;
+        }
+
+        .form p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #b7c0d7;
+        }
+
+        th, td {
+            padding: 10px;
+            color: #f4f4f4;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 3px;
+            margin-top: 4px;
+          
+            border: none;
+            background-color: #f2f2f2;
+            color:#f2f2f2;
+            border-radius: 4px;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 6px;
+            transform: scale(1.2);
+        }
+
+        label {
+            font-size: 16px;
+            color: #f4f4f4;
+        }
+
+        .submit {
+            margin-top: 1rem;
+            background-color:   #AA706A;
+            color: #0d0f11;
+            cursor: pointer;
+            width: 30%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+        <form action="" class="form">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="" id="" placeholder="Enter Your Name"></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td><input type="number" name="" id="" placeholder="+8801******"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="" id="" placeholder="xyz@gmail.com"></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <input type="checkbox" name="" id="">
+                        <label for="">Male</label>
+                        <input type="checkbox" name="" id="">
+                        <label for="">Female</label>
+                        <input type="checkbox" name="" id="">
+                        <label for="">Other</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Department</td>
+                    <td>
+                        <input type="radio" id="age1" name="age" value="0-30">
+                        <label for="age1">CSE</label><br>
+                        <input type="radio" id="age2" name="age" value="31-60">
+                        <label for="age2">EEE</label><br>
+                        <input type="radio" id="age3" name="age" value="61-100">
+                        <label for="age3">BBA</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td><textarea name="" id="" cols="40" rows="4" placeholder="Ex:- 38/39 Shewrapara,Dhaka"></textarea></td>
+                </tr>
+            </table>
+            <input type="submit" value="Submit" class="submit">
+        </form>
+    </div>
+</body>
+</html>

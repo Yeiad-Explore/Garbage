@@ -1,0 +1,29 @@
+Computer Graphics:
+
+1) Anti Aliasing
+2) Color Model
+3) Viewing and Clipping Part : Line Clipping
+4) Viewing and Clipping Part : Polygon Clipping
+5) 3d Transformation
+
+NLP:
+
+1. lecture 2-Regular Expression and Text Normalization
+
+2. lecture 4_N-gram Language Model
+
+3. lecture 6 POS Tagging
+
+4. lecture 8_Syntactic Parsing
+
+5. lecture 11 Discourse and Dialogue
+
+6. lecture_12_Semantic Analysis
+
+Big Data:
+
+1) Apache Scoop
+2) Lecture 4: Hadoop Map Reduce and YARN(NB: without YARN)
+3) Introduction to IOT
+4) IOT part 2
+5) M2M and IOT
